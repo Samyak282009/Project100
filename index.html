@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <title>My Selfie App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link href="style.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <center>
+        <h1>Collage Web App </h1>
+        <hr>
+        <h4>Please press allow as soon as popup comes. After you give a voice command</h4>
+
+        <h3>Say "selfie" for Taking your selfie to make a Collage</h3>
+
+        <button class="btn btn-lg btn-primary" onclick="start()">Start</button>
+        <h4>Press the Start button</h4>
+
+        <label>Your webcam : </label>
+        <div id="camera"></div>
+
+        <br>
+
+        <label>Your selife Will Display Here: </label>
+        <br>
+        <div id="resultRow">
+            <div id="result1" class="column">
+                <img src="">
+            </div>
+
+            <div id="result2" class="column">
+                <img src="">
+            </div>
+
+            <div id="result3" class="column">
+                <img src="">
+            </div>
+        </div>
+    </center>
+
+    <div class="copy_right_footer">
+        Developed by - Samyak
+      </div>
+      setTimeout(function()
+      {
+        img_id="selfie1";
+        take_snapshot();
+        speak_data="Taking your next Selfie in 10 seconds";
+        var utterThis=new SpeechSythesisUtterance(speak_data);
+        synth.speak(utterThis);
+      },5000);
+      function take_snapshot()
+      {
+        console.log(img_id);
+        Webcam.sanp(function(data_uri){
+            if(img_id=="selfie1"){
+                document.getElementById("result1").innerHTML = '<imgid="selfie1 src=" '+data_uri+'"/>';
+            }
+            if(img_id=="selfie2"){
+                document.getElementById("result1").innerHTML = '<imgid="selfie2 src=" '+data_uri+'"/>';
+            }
+            if(img_id=="selfie3"){
+                document.getElementById("result1").innerHTML = '<imgid="selfie3 src=" '+data_uri+'"/>';
+            }
+        });
+      }
+      function take_snapshot()
+      {
+        console.log(img_id);
+        Webcam.snap(function(data_uri){
+            if(img_id=="selfie1"){
+                document.getElement("result1").innerHTML='<img id="selfie1" src="'+data_uri+'"/>';
+            }
+            if(img_id=="selfie2"){
+                document.getElement("result2").innerHTML='<img id="selfie2" src="'+data_uri+'"/>';
+            }
+            if(img_id=="selfie3"){
+                document.getElement("result3").innerHTML='<img id="selfie3" src="'+data_uri+'"/>';
+            }
+            if(img_id=="selfie4"){
+                document.getElement("result4").innerHTML='<img id="selfie4" src="'+data_uri+'"/>';
+            }
+            if(img_id=="selfie5"){
+                document.getElement("result5").innerHTML='<img id="selfie5" src="'+data_uri+'"/>';
+            }
+        })
+      }
+    <script src="main.js"></script>
+</body>
+
+</html>
